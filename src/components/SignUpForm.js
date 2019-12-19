@@ -3,6 +3,10 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { Button } from "reactstrap";
+import { connect, useSelector } from 'react-redux';
+
+// ACTIONS
+import { register } from '../actions/actions';
 
 const SignForm = ({ values, errors, touched, status }) => {
   console.log("values", values);
@@ -56,17 +60,12 @@ const FormikSignUpForm = withFormik({
       "PASSWORD IS REQUIRED HOW DO YOU EXPECT TO LOGIN IN?"
     )
   }),
-  handleSubmit(values, { setStatus, resetForm }) {
+  handleSubmit(values, { register }) {
     console.log("submitting", values);
-    axios
-      .post("https://reqres.in/api/users", values)
-      .then(res => {
-        console.log("success", res);
-        setStatus(res.data);
-        resetForm();
-      })
-      .catch(err => console.log(err));
+    register(values)
   }
 })(SignForm);
 
-export default FormikSignUpForm;
+export default connect(null, 
+  { register }
+)(FormikSignUpForm);
