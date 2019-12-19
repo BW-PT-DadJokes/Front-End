@@ -28,6 +28,15 @@ const SignForm = ({ values, errors, touched, status }) => {
         {touched.password && errors.password && <p>{errors.password}</p>}
         <Button type="submit">Submit</Button>
       </Form>
+
+      {users.map(user => {
+        return (
+          <ul key={user.id}>
+            <li>UserName: {user.username}</li>
+            <li>Email: {user.email}</li>
+          </ul>
+        );
+      })}
     </div>
   );
 };
