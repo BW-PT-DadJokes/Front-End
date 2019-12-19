@@ -105,3 +105,29 @@ button.outline {
   border: 1px solid #aaa;
   color: #555;
 }
+
+.Nav-link {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 2rem;
+  text-decoration: none;
+
+}
+
+h1 {
+  text-align: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+.Nav-link:hover {
+  text-decoration: none;
+  color: lightgrey;
+}
+
+.nav-item {
+  margin-top: 1rem;
+}
