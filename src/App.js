@@ -1,13 +1,16 @@
-import React from 'react';
-import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom'
+import React from "react";
+import "./App.css";
+import SignForm from "./components/SignUpForm";
+import Navigation from "./components/Navigation";
 
+import { Route } from "react-router-dom";
 function App() {
   return (
-    <Router>
-      <div className="App">
-        Hello World!
-      </div>
-    </Router>
+    <div>
+      <Navigation />
+      {/* <Route exact path="/" component={jokes} /> */}
+      <Route exact path="/signup" component={SignForm} />
+    </div>
   );
 }
 
