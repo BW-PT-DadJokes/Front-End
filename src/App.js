@@ -4,11 +4,12 @@ import SignForm from "./components/SignUpForm";
 import Navigation from "./components/Navigation";
 
 import { Route } from "react-router-dom";
+import JokeCard from "./components/Jokes";
 function App() {
   return (
     <div>
       <Navigation />
-      {/* <Route exact path="/" component={jokes} /> */}
+      {/* <Route exact path="/" component={JokeCard} /> */}
       <Route exact path="/signup" component={SignForm} />
     </div>
   );
