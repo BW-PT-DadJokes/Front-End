@@ -9,14 +9,14 @@ import { connect, useSelector } from 'react-redux';
 import { register } from '../actions/actions';
 
 const SignForm = ({ values, errors, touched, status }) => {
-  console.log("values", values);
-  console.log("errors", errors);
-  console.log("touched", touched);
+  // console.log("values", values);
+  // console.log("errors", errors);
+  // console.log("touched", touched);
 
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    console.log("status has changed!", status);
+    // console.log("status has changed!", status);
     status && setUsers(users => [...users, status]);
   }, [status]);
 
@@ -60,9 +60,9 @@ const FormikSignUpForm = withFormik({
       "PASSWORD IS REQUIRED HOW DO YOU EXPECT TO LOGIN IN?"
     )
   }),
-  handleSubmit(values, { register }) {
-    console.log("submitting", values);
-    register(values)
+  handleSubmit(values, { props }) {
+    console.log("submitting", values, props);
+    props.register(values)
   }
 })(SignForm);
 
