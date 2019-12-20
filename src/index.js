@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import rootReducer from "./reducers";
 import "bootstrap/dist/css/bootstrap.min.css";
 import * as serviceWorker from "./serviceWorker";
 
@@ -10,13 +11,13 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
 
-const store = createStore(applyMiddleware(thunk, logger));
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById("root")
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
