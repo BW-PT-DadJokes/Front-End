@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Jokes from "./Jokes";
+import Jokes from "./jokes";
 import { Container, Row } from "reactstrap";
 
 export default function StarsData() {

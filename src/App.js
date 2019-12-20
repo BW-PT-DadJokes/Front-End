@@ -4,7 +4,7 @@ import SignForm from "./components/SignUpForm";
 import Navigation from "./components/Navigation";
 
 import { Route } from "react-router-dom";
-import JokeCard from "./components/Jokes";
+import JokeCard from "./components/jokes";
 function App() {
   return (
     <div>
