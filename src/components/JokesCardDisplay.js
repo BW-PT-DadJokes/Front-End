@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Jokes from "./jokes";
+import JokeCard from "./jokes";
 import { Container, Row } from "reactstrap";
 
 export default function StarsData() {
@@ -29,7 +29,7 @@ export default function StarsData() {
             <div>
               <div class="row">
                 <div class="col">
-                  <Jokes
+                  <JokeCard
                     character={item.name}
                     howTall={item.height}
                     weight={item.mass}
