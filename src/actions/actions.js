@@ -15,5 +15,5 @@ export const register = (credentials) => dispatch => {
       // setStatus(res.data);
       // resetForm();
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log(err))
 }
