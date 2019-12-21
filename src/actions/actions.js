@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 // ACTION TYPES
-const START_FETCHING = 'START_FETCHING'
+export const START_FETCHING = 'START_FETCHING'
 
 // ACTIONS
 export const register = (credentials) => dispatch => {
