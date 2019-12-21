@@ -9,7 +9,7 @@ const Navigation = () => {
         <h1>Dad Jokes</h1>
         <NavItem>
           <Link className="Nav-link" to="/">
-            Home
+            Jokes
           </Link>
         </NavItem>
         <NavItem>
@@ -23,6 +23,7 @@ const Navigation = () => {
           </Link>
         </NavItem>
       </Nav>
+      <br />
     </div>
   );
 };

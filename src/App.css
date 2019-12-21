@@ -21,18 +21,26 @@ body {
 
 }
 
+
 .App {
-  height: 100%;
+  margin: 0 auto;
+  width: 100%;
   display: flex;
-  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 0 0 7px 7px;
+  background-color: #007bff;
+}
+
+.Nav-link {
+  color: #fff;
 }
 
 .user-form {
   width: 460px;
-  margin: auto;
+  margin: 0 auto;
   padding: 32px;
   font-weight: bold;
-  background-color: rgba(114, 121, 34, 0.9);
+  background-color: #007BFF;
   box-shadow: 2px 2px 10px 10px rgba(0, 0, 0, 0.1);
 }
 
