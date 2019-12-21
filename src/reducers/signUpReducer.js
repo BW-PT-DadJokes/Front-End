@@ -1,6 +1,6 @@
 import {
     START_FETCHING,
-} from "../actions";
+} from "../actions/actions";
 
 const initialState = {
     //users: [],

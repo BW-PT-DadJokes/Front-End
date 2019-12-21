@@ -7,7 +7,7 @@ const START_FETCHING = 'START_FETCHING'
 
 // ACTIONS
 export const register = (credentials) => dispatch => {
-  // dispatch({ type: START_FETCHING });
+  dispatch({ type: START_FETCHING });
   axios
     .post("https://reqres.in/api/users", credentials)
     .then(res => {
