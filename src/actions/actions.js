@@ -11,7 +11,7 @@ export const register = (credentials) => dispatch => {
   axios
     .post("https://reqres.in/api/users", credentials)
     .then(res => {
-      console.log("success", res);
+      console.log("reducers/signUpReducer.js: post res: ", res);
       // setStatus(res.data);
       // resetForm();
     })
