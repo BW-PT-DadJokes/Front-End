@@ -1,28 +1,32 @@
 import React from "react";
-import { Nav, NavItem } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Nav, NavItem, NavbarBrand, NavLink } from "reactstrap";
 
 const Navigation = () => {
   return (
     <div>
       <Nav className="App">
-        <h1>Dad Jokes</h1>
+        <NavbarBrand href="/">Dad Jokes</NavbarBrand>
         <NavItem>
-          <Link className="Nav-link" to="/">
+          <NavLink href="https://bw-pt-dadjokes.github.io/Landing-Page/index.html">
             Home
-          </Link>
+          </NavLink>
         </NavItem>
         <NavItem>
-          <Link className="Nav-link" to="/signup">
-            Sign up
-          </Link>
+          <NavLink href="https://bw-pt-dadjokes.github.io/Landing-Page/about-us.html">
+            About Us
+          </NavLink>
         </NavItem>
         <NavItem>
-          <Link className="Nav-link" to="/login">
-            Login
-          </Link>
+          <NavLink href="/">Jokes</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="/signup">Sign Up </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="/login">Login </NavLink>
         </NavItem>
       </Nav>
+      <br />
     </div>
   );
 };
