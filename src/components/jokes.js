@@ -1,19 +1,17 @@
 import React from "react";
-import { Card, CardText } from "reactstrap";
+import { Card, CardTitle, CardBody } from "reactstrap";
 
 const JokeCard = props => {
-  console.log(props.character);
-  console.log(props.howTall);
-  console.log(props.weight);
+  console.log(props.user_id);
+  console.log(props.question);
+  console.log(props.punchline);
   console.log(props.birth_year);
 
   return (
-    <div key={props.character}>
+    <div key={props.user_id}>
       <Card>
-        <strong>{props.character}</strong>
-        <CardText>
-          Height: {props.howTall}cm, Weight: {props.weight}kg
-        </CardText>
+        <CardTitle>{props.question}</CardTitle>
+        <CardBody>{props.punchline}</CardBody>
       </Card>
     </div>
   );
