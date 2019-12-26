@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import JokeCard from "./jokes";
+
 import { Container, Row } from "reactstrap";
 import { Card, CardTitle, CardBody } from "reactstrap";
 
@@ -26,10 +26,10 @@ export default function JokesData() {
           console.log(item.question);
 
           return (
-            <div key={item.question}>
+            <div>
               <Card>
-                <CardTitle>Question: {item.question}</CardTitle>
-                <CardBody>Punchline: {item.punchline}</CardBody>
+                <CardTitle>{item.question}</CardTitle>
+                <CardBody>{item.punchline}</CardBody>
               </Card>
             </div>
           );
