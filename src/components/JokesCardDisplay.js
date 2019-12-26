@@ -28,8 +28,8 @@ export default function JokesData() {
           return (
             <div>
               <Card>
-                <CardTitle>{item.question}</CardTitle>
-                <CardBody>{item.punchline}</CardBody>
+                <CardTitle>Question: {item.question}</CardTitle>
+                <CardBody>PunchLine: {item.punchline}</CardBody>
               </Card>
             </div>
           );
