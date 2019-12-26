@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import JokeCard from "./jokes";
-import { Container, Row } from "reactstrap";
 
-export default function StarsData() {
-  const [heros, setHeros] = useState([]);
+import { Container, Row } from "reactstrap";
+import { Card, CardTitle, CardBody } from "reactstrap";
+
+export default function JokesData() {
+  const [jokes, setJokes] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://swapi.co/api/people/")
+      .get("https://dad-jokes-7.herokuapp.com/api/jokes")
       .then(response => {
         console.log(response.data.results);
-        setHeros(response.data.results);
+        setJokes(response.data);
       })
       .catch(error => {
         console.log("the data was not returned", error);
@@ -21,21 +22,15 @@ export default function StarsData() {
   return (
     <Container>
       <Row>
-        {heros.map(item => {
-          //  console.log(item.name)
+        {jokes.map(item => {
+          console.log(item.question);
 
-          console.log(item.mass);
           return (
             <div>
-              <div class="row">
-                <div class="col">
-                  <JokeCard
-                    character={item.name}
-                    howTall={item.height}
-                    weight={item.mass}
-                  />
-                </div>
-              </div>
+              <Card>
+                <CardTitle>Question: {item.question}</CardTitle>
+                <CardBody>PunchLine: {item.punchline}</CardBody>
+              </Card>
             </div>
           );
         })}
