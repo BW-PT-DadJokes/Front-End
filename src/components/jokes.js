@@ -5,7 +5,6 @@ const JokeCard = props => {
   console.log(props.user_id);
   console.log(props.question);
   console.log(props.punchline);
-  console.log(props.birth_year);
 
   return (
     <div key={props.user_id}>
