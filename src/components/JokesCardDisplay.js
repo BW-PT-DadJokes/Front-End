@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import JokesCard from "./jokes";
 import { Container, Row } from "reactstrap";
-import { Card, CardTitle, CardBody } from "reactstrap";
 
 export default function JokesData() {
   const [jokes, setJokes] = useState([]);
@@ -27,10 +26,14 @@ export default function JokesData() {
 
           return (
             <div>
-              <Card>
-                <CardTitle>Question: {item.question}</CardTitle>
-                <CardBody>PunchLine: {item.punchline}</CardBody>
-              </Card>
+              <div class="row">
+                <div class="col">
+                  <JokesCard
+                    question={item.question}
+                    punchline={item.punchline}
+                  />
+                </div>
+              </div>
             </div>
           );
         })}
