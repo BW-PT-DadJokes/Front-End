@@ -8,7 +8,7 @@ const JokeCard = props => {
   return (
     <div key={props.question}>
       <Card>
-        <CardTitle>Questoin: {props.question}</CardTitle>
+        <CardTitle>Question: {props.question}</CardTitle>
         <CardBody>PunchLine: {props.punchline}</CardBody>
       </Card>
     </div>
