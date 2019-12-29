@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardTitle, CardBody } from "reactstrap";
+import { Card, CardTitle, CardBody, Container, Row, Col } from "reactstrap";
 const JokeCard = props => {
   console.log(props.user_id);
   console.log(props.question);
@@ -7,10 +7,18 @@ const JokeCard = props => {
 
   return (
     <div key={props.question}>
-      <Card>
-        <CardTitle>Question: {props.question}</CardTitle>
-        <CardBody>PunchLine: {props.punchline}</CardBody>
-      </Card>
+      <Container>
+        <Row>
+          <Card>
+            <Col xs="auto">
+              <CardTitle>Question: {props.question}</CardTitle>
+            </Col>
+            <Col xs="auto">
+              <CardBody>PunchLine: {props.punchline}</CardBody>
+            </Col>
+          </Card>
+        </Row>
+      </Container>
     </div>
   );
 };
