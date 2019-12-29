@@ -26,14 +26,7 @@ export default function JokesData() {
 
           return (
             <div>
-              <div class="row">
-                <div class="col">
-                  <JokesCard
-                    question={item.question}
-                    punchline={item.punchline}
-                  />
-                </div>
-              </div>
+              <JokesCard question={item.question} punchline={item.punchline} />
             </div>
           );
         })}
