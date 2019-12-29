@@ -5,9 +5,11 @@ const Navigation = () => {
   return (
     <div>
       <Nav className="App">
-        <NavbarBrand href="https://bw-pt-dadjokes.github.io/Landing-Page/index.html">
-          Dad Jokes
-        </NavbarBrand>
+        <NavItem>
+          <NavLink href="https://bw-pt-dadjokes.github.io/Landing-Page/index.html">
+            Dad Jokes
+          </NavLink>
+        </NavItem>
         <NavItem>
           <NavLink href="https://bw-pt-dadjokes.github.io/Landing-Page/index.html">
             Home
