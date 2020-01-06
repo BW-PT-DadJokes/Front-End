@@ -1,9 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap");
+
 * {
   box-sizing: border-box;
 }
 
-#root, html, body {
+#root,
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -16,7 +19,7 @@ body {
   color: black;
 }
 
-.App {
+.nav {
   margin: 0 auto;
   width: 50%;
   display: flex;
@@ -24,6 +27,8 @@ body {
   border-radius: 0 0 7px 7px;
   background-color: #007bff;
 }
+
+
 
 .nav-link {
   color: #fff;
@@ -48,7 +53,8 @@ body {
   color: fushia;
 }
 
-input, textarea {
+input,
+textarea {
   margin-top: 32px;
   padding: 0.5rem;
   font-size: 16px;
@@ -93,6 +99,7 @@ Button {
   outline: none;
   -webkit-appearance: none;
 }
+
 
 Button:disabled {
   opacity: 0.5;
