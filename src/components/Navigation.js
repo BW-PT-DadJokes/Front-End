@@ -3,8 +3,8 @@ import { Nav, NavItem, NavbarBrand, NavLink } from "reactstrap";
 
 const Navigation = () => {
   return (
-    <div>
-      <Nav className="App">
+    <div className="App">
+      <Nav>
         <NavItem>
           <NavLink href="https://bw-pt-dadjokes.github.io/Landing-Page/index.html">
             Dad Jokes

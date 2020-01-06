@@ -3,10 +3,10 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { Button } from "reactstrap";
-import { connect, useSelector } from 'react-redux';
+import { connect, useSelector } from "react-redux";
 
 // ACTIONS
-import { register } from '../actions/actions';
+import { register } from "../actions/actions";
 
 const SignForm = ({ values, errors, touched, status }) => {
   // console.log("values", values);
@@ -62,10 +62,8 @@ const FormikSignUpForm = withFormik({
   }),
   handleSubmit(values, { props }) {
     console.log("submitting", values, props);
-    props.register(values)
+    props.register(values);
   }
 })(SignForm);
 
-export default connect(null, 
-  { register }
-)(FormikSignUpForm);
+export default connect(null, { register })(FormikSignUpForm);
