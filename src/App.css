@@ -4,15 +4,10 @@
   box-sizing: border-box;
 }
 
-#root,
-html,
-body {
+#root {
   height: 100%;
   margin: 0;
   padding: 0;
-}
-
-body {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -27,8 +22,6 @@ body {
   border-radius: 0 0 7px 7px;
   background-color: #007bff;
 }
-
-
 
 .nav-link {
   color: #fff;
@@ -100,7 +93,6 @@ Button {
   -webkit-appearance: none;
 }
 
-
 Button:disabled {
   opacity: 0.5;
   cursor: not-allowed !important;
@@ -143,6 +135,7 @@ li {
 
 .row {
   background-color: black;
+  border-radius: 0 0 7px 7px;
 }
 
 .card {
