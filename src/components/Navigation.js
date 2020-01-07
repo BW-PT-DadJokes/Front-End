@@ -29,6 +29,9 @@ const Navigation = () => {
         <NavItem>
           <NavLink href="/login">Login </NavLink>
         </NavItem>
+        <NavItem>
+          <NavLink href="/addjoke">Add Joke </NavLink>
+        </NavItem>
       </Nav>
       <br />
     </div>
