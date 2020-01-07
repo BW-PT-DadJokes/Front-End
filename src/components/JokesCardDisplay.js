@@ -22,13 +22,11 @@ export default function JokesData() {
     <Container>
       <Row>
         {jokes.map(item => {
-          console.log(item);
-
-          return (
+          return(
             <div>
-              <JokesCard question={item.question} punchline={item.punchline} />
+            <JokesCard joke={item} />
             </div>
-          );
+          )
         })}
       </Row>
     </Container>

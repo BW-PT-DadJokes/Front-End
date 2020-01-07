@@ -1,7 +1,7 @@
 import {
     START_FETCHING,
     REGISTER_SUCCESS
-} from "../actions/actions";
+} from "../actions/signUpAction";
 
 const initialState = {
     //users: [],

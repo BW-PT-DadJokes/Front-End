@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
-import { Button, FormGroup, Label, Input } from "reactstrap";
+import { Button, FormGroup, Label } from "reactstrap";
+import { connect } from 'react-redux';
+
+// ACTION
+import { addJoke } from '../actions/jokeActions';
 
 const AddJokeForm = ({ values, errors, touched, status }) => {
-  // console.log("values", values);
-  // console.log("errors", errors);
-  // console.log("touched", touched);
 
   const [jokes, setJokes] = useState([]);
 
   useEffect(() => {
-    // console.log("status has changed!", status);
     status && setJokes(jokes => [...jokes, status]);
   }, [status]);
 
@@ -20,18 +19,18 @@ const AddJokeForm = ({ values, errors, touched, status }) => {
     <div className="user-form">
       <Form>
         <h1>Add A Joke</h1>
-        <textarea type="textarea" name="question" placeholder="Question" />
+        <Field component="textarea" name="question" placeholder="Question" />
         {touched.question && errors.question && <p>{errors.question}</p>}
-        <textarea type="textarea" name="punchline" placeholder="Punch line" />
+        <Field component="textarea" name="punchline" placeholder="Punch line" />
         {touched.punchline && errors.punchline && <p>{errors.punchline}</p>}
         <FormGroup check>
           <Label check>
-            <Input type="checkbox" /> Public
-          </Label>
-        </FormGroup>
-        <FormGroup check>
-          <Label check>
-            <Input type="checkbox" /> Private
+            <Field
+              name="publicJoke"
+              type="checkbox"
+              checked={values.publicJoke}
+            />
+            Public
           </Label>
         </FormGroup>
 
@@ -51,21 +50,20 @@ const AddJokeForm = ({ values, errors, touched, status }) => {
 };
 
 const FormikAddJokeForm = withFormik({
-  mapPropsToValues(props) {
+  mapPropsToValues({ question, punchline, publicJoke }) {
     return {
-      queston: props.questions || "",
-      punchline: props.punchline || ""
+      question: question || "",
+      punchline: punchline || "",
+      publicJoke: publicJoke || true
     };
   },
   validationSchema: Yup.object().shape({
-    queston: Yup.string().required("QUESTION IS REQUIRED"),
+    question: Yup.string().required("QUESTION IS REQUIRED"),
     punchline: Yup.string().required("PUNCHLINE IS REQUIRED")
   }),
   handleSubmit(values, { props }) {
+    props.addJoke(values)
     console.log("submitting", values, props);
-    props.register(values);
   }
 })(AddJokeForm);
-
-export default FormikAddJokeForm;
-// export default connect(null, { register })(FormikSignUpForm);
+export default connect(null, { addJoke })(FormikAddJokeForm);
