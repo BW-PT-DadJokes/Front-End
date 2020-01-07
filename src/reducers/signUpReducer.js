@@ -1,5 +1,6 @@
 import {
     START_FETCHING,
+    REGISTER_SUCCESS
 } from "../actions/actions";
 
 const initialState = {
@@ -15,6 +16,11 @@ export const signUpReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isFetching: true
+            };
+        case REGISTER_SUCCESS:
+            return {
+                ...state,
+                isFetching: false
             };
         default:
             return state;
