@@ -22,7 +22,7 @@ export default function JokesData() {
     <Container>
       <Row>
         {jokes.map(item => {
-          console.log(item.question);
+          console.log(item);
 
           return (
             <div>

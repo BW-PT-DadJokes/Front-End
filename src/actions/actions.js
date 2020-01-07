@@ -1,5 +1,4 @@
 import { axiosWithAuth } from '../utils/axiosWithAuth';
-import axios from 'axios';
 
 
 // ACTION TYPES
