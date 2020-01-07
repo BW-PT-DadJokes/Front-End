@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { Button } from "reactstrap";
+import { Button, FormGroup, Label, Input } from "reactstrap";
 
 const AddJokeForm = ({ values, errors, touched, status }) => {
   // console.log("values", values);
@@ -24,6 +24,16 @@ const AddJokeForm = ({ values, errors, touched, status }) => {
         {touched.question && errors.question && <p>{errors.question}</p>}
         <textarea type="textarea" name="punchline" placeholder="Punch line" />
         {touched.punchline && errors.punchline && <p>{errors.punchline}</p>}
+        <FormGroup check>
+          <Label check>
+            <Input type="checkbox" /> Public
+          </Label>
+        </FormGroup>
+        <FormGroup check>
+          <Label check>
+            <Input type="checkbox" /> Private
+          </Label>
+        </FormGroup>
 
         <Button type="submit">Submit</Button>
       </Form>
