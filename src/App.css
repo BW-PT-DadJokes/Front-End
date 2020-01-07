@@ -19,7 +19,7 @@ body {
   color: black;
 }
 
-.App {
+.nav {
   margin: 0 auto;
   width: 50%;
   display: flex;
@@ -27,6 +27,8 @@ body {
   border-radius: 0 0 7px 7px;
   background-color: #007bff;
 }
+
+
 
 .nav-link {
   color: #fff;
@@ -98,6 +100,7 @@ Button {
   -webkit-appearance: none;
 }
 
+
 Button:disabled {
   opacity: 0.5;
   cursor: not-allowed !important;
@@ -138,8 +141,13 @@ li {
   margin-top: 1rem;
 }
 
+.row {
+  background-color: black;
+}
+
 .card {
   margin: 20px;
   padding: 10px;
   text-align: center;
+  color: #007eff;
 }
