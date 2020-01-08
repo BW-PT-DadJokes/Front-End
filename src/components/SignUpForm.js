@@ -3,6 +3,7 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { Button } from "reactstrap";
+import { ReactstrapInput } from "reactstrap-formik";
 import { connect, useSelector } from "react-redux";
 
 // ACTIONS
@@ -26,11 +27,21 @@ const SignForm = ({ values, errors, touched, status }) => {
     <div className="user-form">
       <Form>
         <h1>Sign up Form</h1>
-        <Field type="text" name="username" placeholder="User Name" />
+        <Field
+          type="text"
+          name="username"
+          placeholder="User Name"
+          component={ReactstrapInput}
+        />
         {touched.username && errors.username && <p>{errors.username}</p>}
         {/* <Field type="email" name="email" placeholder="Email" />
         {touched.email && errors.email && <p>{errors.email}</p>} */}
-        <Field type="password" name="password" placeholder="password" />
+        <Field
+          type="password"
+          name="password"
+          placeholder="password"
+          component={ReactstrapInput}
+        />
         {touched.password && errors.password && <p>{errors.password}</p>}
         <Button type="submit">Submit</Button>
       </Form>

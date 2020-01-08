@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { ReactstrapInput } from "reactstrap-formik";
 import { Button } from "reactstrap";
 
 const LoginForm = ({ values, errors, touched, status }) => {
@@ -20,9 +21,19 @@ const LoginForm = ({ values, errors, touched, status }) => {
     <div className="user-form">
       <Form>
         <h1>Login</h1>
-        <Field type="text" name="username" placeholder="User Name" />
+        <Field
+          type="text"
+          name="username"
+          placeholder="User Name"
+          component={ReactstrapInput}
+        />
         {touched.username && errors.username && <p>{errors.username}</p>}
-        <Field type="password" name="password" placeholder="password" />
+        <Field
+          type="password"
+          name="password"
+          placeholder="password"
+          component={ReactstrapInput}
+        />
         {touched.password && errors.password && <p>{errors.password}</p>}
         <Button type="submit">Submit</Button>
       </Form>
