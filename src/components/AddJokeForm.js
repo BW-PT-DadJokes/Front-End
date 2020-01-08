@@ -26,11 +26,11 @@ const AddJokeForm = ({ values, errors, touched, status }) => {
         <FormGroup check>
           <Label check>
             <Field
-              name="publicJoke"
+              name="privateJoke"
               type="checkbox"
-              checked={values.publicJoke}
+              checked={values.privateJoke}
             />
-            Public
+            Set to private
           </Label>
         </FormGroup>
 
@@ -50,11 +50,11 @@ const AddJokeForm = ({ values, errors, touched, status }) => {
 };
 
 const FormikAddJokeForm = withFormik({
-  mapPropsToValues({ question, punchline, publicJoke }) {
+  mapPropsToValues({ question, punchline, privateJoke }) {
     return {
       question: question || "",
       punchline: punchline || "",
-      publicJoke: publicJoke || true
+      privateJoke: privateJoke || false
     };
   },
   validationSchema: Yup.object().shape({

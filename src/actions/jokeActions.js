@@ -8,8 +8,8 @@ export const ADDJOKE_SUCCESS = 'REGISTER_SUCCESS'
 // ACTIONS
 export const addJoke = (joke) => dispatch => {
   dispatch({ type: START_FETCHING });
-  joke = { ...joke, private: joke.publicJoke }
-  delete joke.publicJoke
+  joke = { ...joke, private: joke.privateJoke }
+  delete joke.privateJoke
   axiosWithAuth()
     .post("/jokes", joke)
     .then(res => {

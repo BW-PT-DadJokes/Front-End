@@ -1,53 +1,13 @@
-import React from "react";
-import { Card, CardTitle, CardBody, Container, Row, Col } from "reactstrap";
+import React, { useState } from "react";
+import { Card, CardTitle, CardBody, Container, Row, Col, Collapse, Button } from "reactstrap";
 const JokeCard = ({ joke }) => {
-  console.log('JOKE', joke, 'TOKEN', localStorage.getItem('token'), 'PRIVATE', joke.private)
+  
+  const [open, setOpen] = useState(false);
+  const toggle = () => setOpen(!open);
 
-  // if(localStorage.getItem('token')){
-  //   return (
-  //     <div key={joke.question}>
-  //       <Container>
-  //         <Row>
-  //           <Card>
-  //             <Col xs="auto">
-  //               <CardTitle>Question: {joke.question}</CardTitle>
-  //             </Col>
-  //             <Col xs="auto">
-  //               <CardBody>PunchLine: {joke.punchline}</CardBody>
-  //             </Col>
-  //             <Col xs="auto">
-  //               <CardBody>Private: {joke.private}</CardBody>
-  //             </Col>
-  //           </Card>
-  //         </Row>
-  //       </Container>
-  //     </div>
-  //   );
-  // }else if(joke.private === 'false'){
-  //   return (
-  //     <div key={joke.question}>
-  //       <Container>
-  //         <Row>
-  //           <Card>
-  //             <Col xs="auto">
-  //               <CardTitle>Question: {joke.question}</CardTitle>
-  //             </Col>
-  //             <Col xs="auto">
-  //               <CardBody>PunchLine: {joke.punchline}</CardBody>
-  //             </Col>
-  //             <Col xs="auto">
-  //               <CardBody>Private: {joke.private}</CardBody>
-  //             </Col>
-  //           </Card>
-  //         </Row>
-  //       </Container>
-  //     </div>
-  //   );
-  // }
   return(
     <>
-      {/* {joke.private === 'false' && (
-  
+      {localStorage.getItem('token') ? (
         <div key={joke.question}>
           <Container>
             <Row>
@@ -65,28 +25,30 @@ const JokeCard = ({ joke }) => {
             </Row>
           </Container>
         </div>
-      )} */}
-    
-
-    (localStorage.getItem('token')) && joke.private === 'true' &&{
-      <div key={joke.question}>
-        <Container>
-          <Row>
-            <Card>
-              <Col xs="auto">
-                <CardTitle>Question: {joke.question}</CardTitle>
-              </Col>
-              <Col xs="auto">
-                <CardBody>PunchLine: {joke.punchline}</CardBody>
-              </Col>
-              <Col xs="auto">
-                <CardBody>Private: {joke.private}</CardBody>
-              </Col>
-            </Card>
-          </Row>
-        </Container>
-      </div>
-    }
+      ) : (
+        joke.private === 'false' && (
+          <div key={joke.question}>
+            <Container>
+              <Row>
+                <Card>
+                  <Col xs="auto">
+                    <CardTitle>Question: {joke.question}</CardTitle>
+                  </Col>
+                  <Button color="primary" onClick={toggle}>See Punchline</Button>
+                  <Collapse isOpen={open}>
+                    <Col xs="auto">
+                      <CardBody>PunchLine: {joke.punchline}</CardBody>
+                    </Col>
+                  </Collapse>
+                  <Col xs="auto">
+                    <CardBody>Private: {joke.private}</CardBody>
+                  </Col>
+                </Card>
+              </Row>
+            </Container>
+          </div>
+        )
+      )}
     </>
   )
 };
