@@ -6,17 +6,17 @@ const Navigation = () => {
     <div className="App">
       <Nav>
         <NavItem>
-          <NavLink href="https://bw-pt-dadjokes.github.io/Landing-Page/index.html">
+          <NavLink href="https://dad-jokespt.netlify.com/index.html">
             Dad Jokes
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="https://bw-pt-dadjokes.github.io/Landing-Page/index.html">
+          <NavLink href="https://dad-jokespt.netlify.com/index.html">
             Home
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="https://bw-pt-dadjokes.github.io/Landing-Page/about-us.html">
+          <NavLink href="https://dad-jokespt.netlify.com/about-us.html">
             About Us
           </NavLink>
         </NavItem>
@@ -24,13 +24,13 @@ const Navigation = () => {
           <NavLink href="/">Jokes</NavLink>
         </NavItem>
         <NavItem>
+          <NavLink href="/addjoke">Submit Joke </NavLink>
+        </NavItem>
+        <NavItem>
           <NavLink href="/signup">Sign Up </NavLink>
         </NavItem>
         <NavItem>
           <NavLink href="/login">Login </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="/addjoke">Add Joke </NavLink>
         </NavItem>
       </Nav>
       <br />
