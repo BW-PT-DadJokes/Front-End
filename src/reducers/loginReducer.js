@@ -2,7 +2,7 @@ import {
     LOGIN_REQUEST,
     LOGIN_SUCCESS,
     LOGIN_FAILURE
-} from "../actions/actions";
+} from "../actions/loginAction";
 
 const initialState = {
     isFetching: false,
