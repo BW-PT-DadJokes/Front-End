@@ -3,9 +3,13 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { Button } from "reactstrap";
+import { connect, useSelector } from "react-redux";
+
+// LOGIN ACTIONS
+import { login } from "../actions/actions";
 
 const LoginForm = ({ values, errors, touched, status }) => {
-  console.log("values", values);
+  /*console.log("values", values);
   console.log("errors", errors);
   console.log("touched", touched);
 
@@ -14,7 +18,7 @@ const LoginForm = ({ values, errors, touched, status }) => {
   useEffect(() => {
     console.log("status has changed!", status);
     status && setUsers(users => [...users, status]);
-  }, [status]);
+  }, [status]);*/
 
   return (
     <div className="user-form">
@@ -27,13 +31,13 @@ const LoginForm = ({ values, errors, touched, status }) => {
         <Button type="submit">Submit</Button>
       </Form>
 
-      {users.map(user => {
+      {/*users.map(user => {
         return (
           <ul key={user.id}>
             <li>UserName: {user.username}</li>
           </ul>
         );
-      })}
+      })*/}
     </div>
   );
 };
@@ -41,7 +45,7 @@ const LoginForm = ({ values, errors, touched, status }) => {
 const FormikLoginForm = withFormik({
   mapPropsToValues(props) {
     return {
-      user: props.users || "",
+      username: props.username || "",
       password: props.password || ""
     };
   },
@@ -49,17 +53,13 @@ const FormikLoginForm = withFormik({
     username: Yup.string().required("USER NAME IS REQUIRED"),
     password: Yup.string().required("PASSWORD IS REQUIRED")
   }),
-  handleSubmit(values, { setStatus, resetForm }) {
-    console.log("submitting", values);
-    axios
-      .post("https://reqres.in/api/users", values)
-      .then(res => {
-        console.log("success", res);
-        setStatus(res.data);
-        resetForm();
-      })
-      .catch(err => console.log(err));
+  handleSubmit(values, { props }) {
+    console.log("submitting", values, props);
+    props.login(values);
   }
 })(LoginForm);
 
-export default FormikLoginForm;
+export default connect(
+  null,
+  { login }
+)(FormikLoginForm);
