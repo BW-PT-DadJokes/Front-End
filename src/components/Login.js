@@ -6,7 +6,7 @@ import { Button } from "reactstrap";
 import { connect, useSelector } from "react-redux";
 
 // LOGIN ACTIONS
-import { login } from "../actions/actions";
+import { login } from "../actions/loginAction";
 
 const LoginForm = ({ values, errors, touched, status }) => {
   /*console.log("values", values);
