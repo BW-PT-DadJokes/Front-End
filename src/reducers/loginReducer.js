@@ -1,14 +1,37 @@
-//import * as types from './actions/actions';
+import {
+    LOGIN_REQUEST,
+    LOGIN_SUCCESS,
+    LOGIN_FAILURE
+} from "../actions/actions";
 
-//export default function (state = [], action) {
-    //const response = action.response;
+const initialState = {
+    isFetching: false,
+    isLoggedIn: false,
+    isLoading: false,
+    user: {}
+};
 
-    //switch (action.type) {
-        //case types.LOGIN_USER_SUCCESS:
-            //return { ...state, response };
-        //case types.LOGIN_USER_ERROR:
-            //return { ...state, response };
-        //default:
-            //return state;
-    //}
-//};
+export const loginReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case LOGIN_SUCCESS:
+            return {
+                ...state,
+                isLoggedIn: true,
+                isFetching: false,
+                user: action.payload.user
+            };
+        case LOGIN_REQUEST:
+            return {
+                ...state,
+                isFetching: true
+            };
+        case LOGIN_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                isFetching: false
+            };
+        default:
+            return state;
+    }
+};
