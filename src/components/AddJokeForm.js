@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { Button, FormGroup, Label } from "reactstrap";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
 // ACTION
-import { addJoke } from '../actions/jokeActions';
+import { addJoke } from "../actions/jokeActions";
 
 const AddJokeForm = ({ values, errors, touched, status }) => {
-
   const [jokes, setJokes] = useState([]);
 
   useEffect(() => {
@@ -62,7 +61,7 @@ const FormikAddJokeForm = withFormik({
     punchline: Yup.string().required("PUNCHLINE IS REQUIRED")
   }),
   handleSubmit(values, { props }) {
-    props.addJoke(values)
+    props.addJoke(values);
     console.log("submitting", values, props);
   }
 })(AddJokeForm);
