@@ -6,17 +6,17 @@ const Navigation = () => {
     <div className="App">
       <Nav>
         <NavItem>
-          <NavLink href="https://bw-pt-dadjokes.github.io/Landing-Page/index.html">
+          <NavLink href="https://dad-jokespt.netlify.com/index.html">
             Dad Jokes
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="https://bw-pt-dadjokes.github.io/Landing-Page/index.html">
+          <NavLink href="https://dad-jokespt.netlify.com/index.html">
             Home
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="https://bw-pt-dadjokes.github.io/Landing-Page/about-us.html">
+          <NavLink href="https://dad-jokespt.netlify.com/about-us.html">
             About Us
           </NavLink>
         </NavItem>
