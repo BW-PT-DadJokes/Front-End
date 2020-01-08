@@ -24,13 +24,13 @@ const Navigation = () => {
           <NavLink href="/">Jokes</NavLink>
         </NavItem>
         <NavItem>
+          <NavLink href="/addjoke">Submit Joke </NavLink>
+        </NavItem>
+        <NavItem>
           <NavLink href="/signup">Sign Up </NavLink>
         </NavItem>
         <NavItem>
           <NavLink href="/login">Login </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="/addjoke">Add Joke </NavLink>
         </NavItem>
       </Nav>
       <br />
