@@ -9,17 +9,17 @@ import {
   Collapse,
   Button
 } from "reactstrap";
+
 const JokeCard = ({ joke }) => {
   const [open, setOpen] = useState(false);
   const toggle = () => setOpen(!open);
-
   return (
     <>
       {localStorage.getItem("token") ? (
         <div key={joke.question}>
           <Container>
             <Row>
-              <Card>
+              <Card id='jokeCard'>
                 <Col xs="auto">
                   <CardTitle>Question: {joke.question}</CardTitle>
                 </Col>
@@ -38,7 +38,7 @@ const JokeCard = ({ joke }) => {
           <div key={joke.question}>
             <Container>
               <Row>
-                <Card>
+                <Card id='jokeCard'>
                   <Col xs="auto">
                     <CardTitle>Question: {joke.question}</CardTitle>
                   </Col>

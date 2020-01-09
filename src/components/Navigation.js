@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Logo from "../favicon-32x32.png";
 import { Nav, NavItem, NavbarBrand, NavLink } from "reactstrap";
+import { useSelector, useDispatch } from 'react-redux';
 
-const Navigation = () => {
+// ACTIONS
+import { checkStatus } from '../actions/signUpAction';
+
+const Navigation = (props) => {
+  const loggedIn = useSelector(state => state.loggedIn);
+  const dispatch = useDispatch();
+  const log_out = () => {
+    localStorage.removeItem('token')
+  }
+
+  console.log(loggedIn)
+
+  useEffect(() => {
+    dispatch(checkStatus())
+  }, [])
+
   return (
     <div className="App">
       <Nav>
@@ -25,12 +41,19 @@ const Navigation = () => {
         <NavItem>
           <NavLink href="/addjoke">Submit Joke </NavLink>
         </NavItem>
-        <NavItem>
-          <NavLink href="/signup">Sign Up </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="/login">Login </NavLink>
-        </NavItem>
+        {!loggedIn ? (
+          <>
+            <NavItem>
+              <NavLink href="/signup">Sign Up </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/login">Login </NavLink>
+            </NavItem>
+          </>
+        ) : (
+          <NavItem><NavLink href='/' onClick={()=>log_out()}>Log out</NavLink></NavItem>
+        )}
+        
       </Nav>
       <br />
     </div>
