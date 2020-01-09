@@ -1,13 +1,21 @@
 import React, { useState } from "react";
-import { Card, CardTitle, CardBody, Container, Row, Col, Collapse, Button } from "reactstrap";
+import {
+  Card,
+  CardTitle,
+  CardBody,
+  Container,
+  Row,
+  Col,
+  Collapse,
+  Button
+} from "reactstrap";
 const JokeCard = ({ joke }) => {
-  
   const [open, setOpen] = useState(false);
   const toggle = () => setOpen(!open);
 
-  return(
+  return (
     <>
-      {localStorage.getItem('token') ? (
+      {localStorage.getItem("token") ? (
         <div key={joke.question}>
           <Container>
             <Row>
@@ -26,7 +34,7 @@ const JokeCard = ({ joke }) => {
           </Container>
         </div>
       ) : (
-        joke.private === 'false' && (
+        joke.private === "false" && (
           <div key={joke.question}>
             <Container>
               <Row>
@@ -34,7 +42,9 @@ const JokeCard = ({ joke }) => {
                   <Col xs="auto">
                     <CardTitle>Question: {joke.question}</CardTitle>
                   </Col>
-                  <Button color="primary" onClick={toggle}>See Punchline</Button>
+                  <Button color="primary" onClick={toggle}>
+                    See Punchline
+                  </Button>
                   <Collapse isOpen={open}>
                     <Col xs="auto">
                       <CardBody>PunchLine: {joke.punchline}</CardBody>
@@ -50,7 +60,7 @@ const JokeCard = ({ joke }) => {
         )
       )}
     </>
-  )
+  );
 };
 
 export default JokeCard;

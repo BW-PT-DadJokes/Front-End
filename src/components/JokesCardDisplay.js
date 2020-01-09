@@ -22,11 +22,11 @@ export default function JokesData() {
     <Container>
       <Row>
         {jokes.map(item => {
-          return(
+          return (
             <div>
-            <JokesCard joke={item} />
+              <JokesCard joke={item} />
             </div>
-          )
+          );
         })}
       </Row>
     </Container>
