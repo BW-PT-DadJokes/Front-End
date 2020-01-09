@@ -1,4 +1,4 @@
-import { START_FETCHING, REGISTER_SUCCESS } from "../actions/actions";
+import { START_FETCHING, REGISTER_SUCCESS } from "../actions/signUpAction";
 
 const initialState = {
     //users: [],
