@@ -1,4 +1,5 @@
 import React from "react";
+import Logo from "../favicon-32x32.png";
 import { Nav, NavItem, NavbarBrand, NavLink } from "reactstrap";
 
 const Navigation = () => {
@@ -6,9 +7,7 @@ const Navigation = () => {
     <div className="App">
       <Nav>
         <NavItem>
-          <NavLink href="https://dad-jokespt.netlify.com/index.html">
-            Dad Jokes
-          </NavLink>
+          <img src={Logo} alt="" />{" "}
         </NavItem>
         <NavItem>
           <NavLink href="https://dad-jokespt.netlify.com/index.html">

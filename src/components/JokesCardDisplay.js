@@ -21,13 +21,15 @@ export default function JokesData() {
   return (
     <Container>
       <Row>
-        {jokes.map(item => {
-          return (
-            <div>
-              <JokeCard joke={item} />
-            </div>
-          );
-        })}
+        <div>
+          {jokes.map(item => {
+            return (
+              <div>
+                <JokeCard joke={item} />
+              </div>
+            );
+          })}
+        </div>
       </Row>
     </Container>
   );
