@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import JokesCard from "./jokes";
+import JokeCard from "./jokes";
 import { Container, Row } from "reactstrap";
 
 export default function JokesData() {
@@ -22,11 +22,11 @@ export default function JokesData() {
     <Container>
       <Row>
         {jokes.map(item => {
-          return(
+          return (
             <div>
-            <JokesCard joke={item} />
+              <JokeCard joke={item} />
             </div>
-          )
+          );
         })}
       </Row>
     </Container>
