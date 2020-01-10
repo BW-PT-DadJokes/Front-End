@@ -14,6 +14,11 @@ const JokeCard = ({ joke }) => {
   const [open, setOpen] = useState(false);
   const toggle = () => setOpen(!open);
 
+  /*const handleEditClick = e => {
+    e.preventDefault();
+    props.history.push(`/update_joke/${item.id}`);
+  };*/
+
   return (
     <>
       {localStorage.getItem("token") ? (
@@ -35,6 +40,11 @@ const JokeCard = ({ joke }) => {
                 <Col xs="auto">
                   <CardBody>Private: {joke.private}</CardBody>
                 </Col>
+                <Col xs="auto">
+                  <button /*onClick={handleEditClick}*/>Edit</button>
+                  <button /*onClick={handleEditClick}*/>Delete</button>
+                </Col>
+
               </Card>
             </Row>
           </Container>
@@ -51,20 +61,20 @@ const JokeCard = ({ joke }) => {
                   <Button color="primary" onClick={toggle}>
                     See Punchline
                   </Button>
-                  <Collapse isOpen={open}>
+                    <Collapse isOpen={open}>
+                      <Col xs="auto">
+                        <CardBody>PunchLine: {joke.punchline}</CardBody>
+                      </Col>
+                    </Collapse>
                     <Col xs="auto">
-                      <CardBody>PunchLine: {joke.punchline}</CardBody>
+                      <CardBody>Private: {joke.private}</CardBody>
                     </Col>
-                  </Collapse>
-                  <Col xs="auto">
-                    <CardBody>Private: {joke.private}</CardBody>
-                  </Col>
-                </Card>
-              </Row>
-            </Container>
-          </div>
-        )
-      )}
+                  </Card>
+                </Row>
+              </Container>
+            </div>
+          )
+        )}
     </>
   );
 };

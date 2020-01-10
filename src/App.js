@@ -12,6 +12,7 @@ import Navigation from "./components/Navigation";
 import JokesCardDisplay from "./components/JokesCardDisplay";
 import PrivateRoute from './components/PrivateRoute';
 
+
 function App() {
 
   return (
@@ -28,3 +29,10 @@ function App() {
 }
 
 export default App;
+
+
+/*Route
+  path="/update_item/:id"
+  render={props => (
+    <UpdateForm {...props} jokes={jokes} updateJokes={setJokes} />
+  )}*/
