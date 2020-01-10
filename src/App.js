@@ -7,6 +7,8 @@ import AddJokeForm from "./components/AddJokeForm";
 import Navigation from "./components/Navigation";
 import { Route } from "react-router-dom";
 import JokesCardDisplay from "./components/JokesCardDisplay";
+import UpdateForm from './components/UpdateForm';
+
 function App() {
   return (
     <Router>
@@ -16,9 +18,17 @@ function App() {
         <Route exact path="/signup" component={SignForm} />
         <Route exact path="/login" component={LoginForm} />
         <Route path="/addjoke" component={AddJokeForm} />
+
       </div>
     </Router>
   );
 }
 
 export default App;
+
+
+/*Route
+  path="/update_item/:id"
+  render={props => (
+    <UpdateForm {...props} jokes={jokes} updateJokes={setJokes} />
+  )}*/
