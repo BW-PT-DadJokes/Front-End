@@ -1,11 +1,8 @@
-import {
-    START_FETCHING,
-    REGISTER_SUCCESS
-} from "../actions/signUpAction";
+import { START_FETCHING, REGISTER_SUCCESS } from "../actions/signUpAction";
 
 const initialState = {
     //users: [],
-    isFetching: false,
+    isFetching: false
     //isPosting: false,
     //error: ""
 };
