@@ -145,10 +145,10 @@ li {
   color: #007eff;
 }
 
-h1 {
-  color: #fff;
+#jokeCard {
+  background: rgb(24,26,27)
 }
 
-.form-check-label {
-  color: #fff;
+.app {
+  background: rgb(24,26,27);
 }
