@@ -3,45 +3,40 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 // SIGNUP ACTION TYPES
 export const START_FETCHING = "START_FETCHING";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
-
-// LOGIN TYPES
-export const LOGIN_REQUEST = "LOGIN_REQUEST";
-export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
-export const LOGIN_FAILURE = "LOGIN_FAILURE";
+export const REGISTER_FAILURE = "REGISTER_FAILURE";
+export const LOGGED_IN = "LOGGED_IN";
+export const LOGGED_OUT = "LOGGED_OUT";
+export const LOG_OUT_SUCCESS = "LOG_OUT_SUCCESS";
 
 //SIGNUP ACTIONS
-export const register = credentials => dispatch => {
+export const register = (credentials, history) => dispatch => {
   dispatch({ type: START_FETCHING });
   axiosWithAuth()
     .post("/auth/register", credentials)
     .then(res => {
       console.log("reducers/signUpReducer.js: post res: ", res);
       dispatch({ type: REGISTER_SUCCESS });
-      // setStatus(res.data);
-      // resetForm();
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("user_id", res.data.id);
+      history.push('/')
     })
     .catch(error => {
+      dispatch({ type: REGISTER_FAILURE, payload: error.response.data });
       console.log(error.response);
     });
 };
 
-//LOGIN ACTIONS
-export const login = credentials => dispatch => {
-  dispatch({
-    type: LOGIN_REQUEST
-  });
-  axiosWithAuth()
-    .post("/auth/login", credentials)
-    .then(res => {
-      console.log("reducers/loginReducer.js: post res: ", res);
-      localStorage.setItem("token", res.data.token);
-      dispatch({
-        type: LOGIN_SUCCESS,
-        payload: res.data
-      });
-    })
-    .catch(err => {
-      console.log(err.response);
-      dispatch({ type: LOGIN_FAILURE, payload: err.message });
-    });
-};
+export const checkStatus = () => dispatch => {
+  if(localStorage.getItem('token')){
+    console.log('logged in')
+    dispatch({ type: LOGGED_IN })
+  }else{
+    console.log('logged out')
+    dispatch({ type: LOGGED_OUT })
+  }
+}
+
+export const logOut = () => dispatch => {
+  localStorage.removeItem('token')
+  dispatch({ type: LOG_OUT_SUCCESS })
+}
