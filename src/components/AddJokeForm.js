@@ -49,11 +49,12 @@ const AddJokeForm = ({ values, errors, touched, status }) => {
 };
 
 const FormikAddJokeForm = withFormik({
-  mapPropsToValues({ question, punchline, privateJoke }) {
+  mapPropsToValues({ question, punchline, privateJoke, user_id }) {
     return {
       question: question || "",
       punchline: punchline || "",
-      privateJoke: privateJoke || false
+      privateJoke: privateJoke || false,
+      user_id: Number(localStorage.getItem('user_id'))
     };
   },
   validationSchema: Yup.object().shape({
@@ -61,7 +62,8 @@ const FormikAddJokeForm = withFormik({
     punchline: Yup.string().required("PUNCHLINE IS REQUIRED")
   }),
   handleSubmit(values, { props }) {
-    props.addJoke(values);
+    
+    props.addJoke(values, props.history);
     console.log("submitting", values, props);
   }
 })(AddJokeForm);

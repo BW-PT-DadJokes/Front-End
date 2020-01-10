@@ -4,16 +4,13 @@ import { Nav, NavItem, NavbarBrand, NavLink } from "reactstrap";
 import { useSelector, useDispatch } from 'react-redux';
 
 // ACTIONS
-import { checkStatus } from '../actions/signUpAction';
+import { checkStatus, logOut } from '../actions/signUpAction';
 
 const Navigation = (props) => {
   const loggedIn = useSelector(state => state.loggedIn);
   const dispatch = useDispatch();
-  const log_out = () => {
-    localStorage.removeItem('token')
-  }
 
-  console.log(loggedIn)
+  console.log('NAVIGATION', loggedIn)
 
   useEffect(() => {
     dispatch(checkStatus())
@@ -51,7 +48,7 @@ const Navigation = (props) => {
             </NavItem>
           </>
         ) : (
-          <NavItem><NavLink href='/' onClick={()=>log_out()}>Log out</NavLink></NavItem>
+          <NavItem><NavLink href='/' onClick={()=>dispatch(logOut())}>Log out</NavLink></NavItem>
         )}
         
       </Nav>

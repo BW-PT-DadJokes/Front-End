@@ -17,6 +17,7 @@ export const register = (credentials, history) => dispatch => {
       console.log("reducers/signUpReducer.js: post res: ", res);
       dispatch({ type: REGISTER_SUCCESS });
       localStorage.setItem("token", res.data.token);
+      localStorage.setItem("user_id", res.data.id);
       history.push('/')
     })
     .catch(error => {
@@ -30,7 +31,7 @@ export const checkStatus = () => dispatch => {
     console.log('logged in')
     dispatch({ type: LOGGED_IN })
   }else{
-    console.log('logged in')
+    console.log('logged out')
     dispatch({ type: LOGGED_OUT })
   }
 }

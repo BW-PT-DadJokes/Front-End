@@ -14,11 +14,9 @@ export const login = (credentials, history) => dispatch => {
         .post("/auth/login", credentials)
         .then(res => {
         console.log("reducers/loginReducer.js: post res: ", res);
+        dispatch({ type: LOGIN_SUCCESS });
         localStorage.setItem("token", res.data.token);
-        dispatch({
-            type: LOGIN_SUCCESS,
-            payload: res.data
-        });
+        localStorage.setItem("user_id", res.data.id);
         history.push('/')
         })
         .catch(err => {
