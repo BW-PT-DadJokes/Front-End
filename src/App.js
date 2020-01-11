@@ -11,7 +11,11 @@ import AddJokeForm from "./components/AddJokeForm";
 import Navigation from "./components/Navigation";
 import JokesCardDisplay from "./components/JokesCardDisplay";
 import PrivateRoute from './components/PrivateRoute';
+<<<<<<< HEAD
 import UpdateForm from "./components/UpdateForm"
+=======
+
+>>>>>>> bfd93cd854fff7633443be78d1d211a21b9672f2
 
 function App() {
 
@@ -23,7 +27,10 @@ function App() {
         <Route exact path="/signup" component={SignForm} />
         <Route exact path="/login" component={LoginForm} />
         <PrivateRoute path="/addjoke" component={AddJokeForm} />
+<<<<<<< HEAD
         <PrivateRoute path="/jokes/:id" component={UpdateForm} />
+=======
+>>>>>>> bfd93cd854fff7633443be78d1d211a21b9672f2
       </div>
     </Router>
   );
