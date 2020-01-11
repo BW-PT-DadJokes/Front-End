@@ -66,7 +66,7 @@ const FormikLoginForm = withFormik({
   }),
   handleSubmit(values, { props }) {
     console.log("submitting", values, props);
-    props.login(values);
+    props.login(values, props.history);
   }
 })(LoginForm);
 

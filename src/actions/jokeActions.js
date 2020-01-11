@@ -6,7 +6,7 @@ export const START_FETCHING = 'START_FETCHING'
 export const ADDJOKE_SUCCESS = 'REGISTER_SUCCESS'
 
 // ACTIONS
-export const addJoke = (joke) => dispatch => {
+export const addJoke = (joke, history) => dispatch => {
   dispatch({ type: START_FETCHING });
   joke = { ...joke, private: joke.privateJoke }
   delete joke.privateJoke
@@ -14,7 +14,7 @@ export const addJoke = (joke) => dispatch => {
     .post("/jokes", joke)
     .then(res => {
       dispatch({ type: ADDJOKE_SUCCESS })
-      console.log(res)
+      history.push('/')
     })
     .catch(error => {
       console.log(error.response)
