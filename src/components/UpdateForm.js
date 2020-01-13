@@ -1,149 +1,70 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
-const initialJoke = {
-  question: '',
-  punchline: ''
-};
 
-const UpdateForm = props => {
-  const [joke, setJoke] = useState(initialJoke);
+
+function UpdateJoke(props) {
+  const [joke, setJoke] = useState({
+    id: "",
+    question: "",
+    punchline: "",
+  })
+
   useEffect(() => {
-    const jokeToEdit = props.jokess.find(
-      e => `${e.id}` === props.match.params.id
-    );
-    console.log(props.jokes, jokeToEdit);
-    if (jokeToEdit) {
-      setJoke(jokeToEdit);
-    }
-  }, [props.jokes, props.match.params.id]);
+    axiosWithAuth()
+      .get(`/jokes/${props.match.params.id}`)
+      .then(result => {
+        setJoke(result.data)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }, [props.match.params.id]);
 
-  const changeHandler = ev => {
-    ev.persist();
-    let value = ev.target.value;
-    if (ev.target.name === 'punchline') {
-      value = parseInt(value, 10);
-    }
-
+  const handleChange = (event) => {
     setJoke({
       ...joke,
-      [ev.target.name]: value
-    });
-  };
+      [event.target.name]: event.target.value,
+    })
+  }
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    // make a PUT request to edit the item
-    axios
-      .put(`https://dad-jokes-7.herokuapp.com/api/jokes/allJokes${joke.id}`, joke)
-      .then(res => {
-        // res.data ==> full array with updated item
+  const handleSubmit = (event) => {
+    event.preventDefault()
 
-        // const newItemsArr = props.items.map
-        props.updateJokes(res.data);
-        props.history.push(`/${joke.id}`);
+    axiosWithAuth()
+      .put(`/jokes/${joke.id}`, joke)
+      .then((result) => {
+        props.history.push("/")
       })
-      .catch(err => console.log(err));
-  };
+      .catch((error) => {
+        console.log(error)
+      })
+  }
 
   return (
-    <div>
-      <h2>Update Joke</h2>
+    <>
+      <h1>Edit Joke</h1>
+
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          name="name"
-          onChange={changeHandler}
+          name="question"
           placeholder="Question"
-          value={joke.name}
+          value={joke.question}
+          onChange={handleChange}
         />
-        <div className="baseline" />
-
         <input
           type="text"
           name="punchline"
-          onChange={changeHandler}
           placeholder="Punchline"
           value={joke.punchline}
+          onChange={handleChange}
         />
-        <div className="baseline" />
 
-
-        <button>Update</button>
+        <button type="submit">Save</button>
       </form>
-    </div>
-  );
-};
+    </>
+  )
+}
 
-export default UpdateForm;
-
-/*
-import React, { useState, useEffect } from "react";
-import { withFormik, Form, Field } from "formik";
-import * as Yup from "yup";
-import { Button, FormGroup, Label } from "reactstrap";
-import { connect } from "react-redux";
-
-// ACTION
-import { addJoke } from "../actions/jokeActions";
-
-const AddJokeForm = ({ values, errors, touched, status }) => {
-  const [jokes, setJokes] = useState([]);
-
-  useEffect(() => {
-    status && setJokes(jokes => [...jokes, status]);
-  }, [status]);
-
-  return (
-    <div className="user-form">
-      <Form>
-        <h1>Edit A Joke</h1>
-        <Field component="textarea" name="question" placeholder="Question" />
-        {touched.question && errors.question && <p>{errors.question}</p>}
-        <Field component="textarea" name="punchline" placeholder="Punch line" />
-        {touched.punchline && errors.punchline && <p>{errors.punchline}</p>}
-        <FormGroup check>
-          <Label check>
-            <Field
-              name="privateJoke"
-              type="checkbox"
-              checked={values.privateJoke}
-            />
-            Set to private
-          </Label>
-        </FormGroup>
-
-        <Button type="submit">Submit</Button>
-      </Form>
-
-      {jokes.map(joke => {
-        return (
-          <ul key={joke.id}>
-            <li>Question: {joke.question}</li>
-            <li>Punchline: {joke.punchline}</li>
-          </ul>
-        );
-      })}
-    </div>
-  );
-};
-
-const FormikAddJokeForm = withFormik({
-  mapPropsToValues({ question, punchline, privateJoke }) {
-    return {
-      question: question || "",
-      punchline: punchline || "",
-      privateJoke: privateJoke || false
-    };
-  },
-  validationSchema: Yup.object().shape({
-    question: Yup.string().required("QUESTION IS REQUIRED"),
-    punchline: Yup.string().required("PUNCHLINE IS REQUIRED")
-  }),
-  handleSubmit(values, { props }) {
-    props.addJoke(values);
-    console.log("submitting", values, props);
-  }
-})(AddJokeForm);
-export default connect(null, { addJoke })(FormikAddJokeForm);
-*/
+export default UpdateJoke

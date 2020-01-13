@@ -11,6 +11,7 @@ import AddJokeForm from "./components/AddJokeForm";
 import Navigation from "./components/Navigation";
 import JokesCardDisplay from "./components/JokesCardDisplay";
 import PrivateRoute from './components/PrivateRoute';
+import UpdateForm from "./components/UpdateForm"
 
 
 function App() {
@@ -23,16 +24,10 @@ function App() {
         <Route exact path="/signup" component={SignForm} />
         <Route exact path="/login" component={LoginForm} />
         <PrivateRoute path="/addjoke" component={AddJokeForm} />
+        <PrivateRoute path="/jokes/:id" component={UpdateForm} />
       </div>
     </Router>
   );
 }
 
 export default App;
-
-
-/*Route
-  path="/update_item/:id"
-  render={props => (
-    <UpdateForm {...props} jokes={jokes} updateJokes={setJokes} />
-  )}*/

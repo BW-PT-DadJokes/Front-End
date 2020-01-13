@@ -1,4 +1,4 @@
-function DeleteJoke(props) {
+/*function DeleteJoke(props) {
     //
     const joke = props.jokes.find(
         thing => `${thing.id}` === props.match.params.id
@@ -24,4 +24,6 @@ function DeleteJoke(props) {
             .catch(err => console.log(err));
     };
 }
-export default DeleteJoke;
+export default DeleteJoke;*/
+
+
